@@ -70,7 +70,7 @@ Produtor: 28
 Produtor: 29
 
 
-*- Observação: O produtor armazenou valores de 0 a 29, enquanto o consumidor leu esses valores. O consumidor leu alguns valores várias vezes (ex.: `0` quatro vezes, `1` quatro vezes) devido à sobreescrita do valor `Dado` pelo produtor antes da leitura, indicando uma condição de corrida.
+*- Observação: O produtor armazenou valores de 0 a 29, enquanto o consumidor leu esses valores. O consumidor leu alguns valores várias vezes devido à sobreescrita do valor `Dado` pelo produtor antes da leitura, indicando uma condição de corrida.
 
 - **Segunda Execução (`log2.txt`):**
 - Comando: `java MeuDadoThreadsJava > log2.txt`
@@ -137,7 +137,7 @@ Produtor: 29
 Consumidor: 29
 
 
-*- Observação: A ordem das operações mudou, com o consumidor lendo menos valores duplicados para alguns casos (ex.: `0` uma vez) e mais para outros (ex.: `6` quatro vezes), refletindo diferentes condições de corrida.
+*- Observação: A ordem das operações mudou, com o consumidor lendo menos valores duplicados para alguns casos e mais para outros , refletindo diferentes condições de corrida.
 
 - **Comparação (`diff log1.txt log2.txt`):**
 - Resultado do diff:
