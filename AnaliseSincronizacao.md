@@ -1,13 +1,19 @@
-## RELATORIO
-* 
-# Análise de Sincronização de Threads em Java
+# Análise de Sincronização de Threads em Java  
+**Disciplina:** Programação Concorrente  
+**Atividade Prática 01 — Produtor/Consumidor sem Sincronização**
 
-## Atividade Prática 01
+---
 
-### Detalhes das Execuções
-- **Primeira Execução (`log1.txt`):**
-  - Comando: `java MeuDadoThreadsJava > log1.txt`
-  - Saída observada:
+## 1. Detalhes das Execuções
+
+### 1.1 Primeira Execução (`log1.txt`)
+**Comando executado:**
+```bash
+java MeuDadoThreadsJava > log1.txt
+
+
+Saída observada (trecho):
+
 Produtor: 0
 Consumidor: 0
 Consumidor: 0
@@ -69,12 +75,9 @@ Consumidor: 27
 Produtor: 28
 Produtor: 29
 
+1.2 Segunda Execução (log2.txt)
+java MeuDadoThreadsJava > log2.txt
 
-*- Observação: O produtor armazenou valores de 0 a 29, enquanto o consumidor leu esses valores. O consumidor leu alguns valores várias vezes devido à sobreescrita do valor `Dado` pelo produtor antes da leitura, indicando uma condição de corrida.
-
-- **Segunda Execução (`log2.txt`):**
-- Comando: `java MeuDadoThreadsJava > log2.txt`
-- Saída observada:
 Produtor: 0
 Consumidor: 0
 Produtor: 1
@@ -137,53 +140,16 @@ Produtor: 29
 Consumidor: 29
 
 
-*- Observação: A ordem das operações mudou, com o consumidor lendo menos valores duplicados para alguns casos e mais para outros , refletindo diferentes condições de corrida.
+diff log1.txt log2.txt
 
-- **Comparação (`diff log1.txt log2.txt`):**
-- Resultado do diff:
+
+Saída (resumo):
+
 3,5d2
 < Consumidor: 0
 < Consumidor: 0
 < Consumidor: 0
-7,10d3
-< Consumidor: 1
-< Consumidor: 1
-< Consumidor: 1
-< Consumidor: 1
-11a5,6
-
-Consumidor: 2
-Consumidor: 2
-16d10
-< Consumidor: 4
-18d11
-< Consumidor: 5
-20a14,16
-Consumidor: 6
-Consumidor: 6
-Consumidor: 6
-24a21,22
-Consumidor: 9
-Consumidor: 9
-28a27
-Consumidor: 12
-32d30
-< Consumidor: 14
-37d34
-< Consumidor: 16
-39a37
-Consumidor: 17
-46d43
-< Consumidor: 20
-48,49d44
-< Consumidor: 21
-< Consumidor: 21
-50a46
-Consumidor: 22
-51a48
-Consumidor: 23
-55a53,54
-Consumidor: 26
-Consumidor: 26
+...
 60a60
 Consumidor: 29
+
