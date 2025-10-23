@@ -1,5 +1,5 @@
 # Análise de Sincronização de Threads em Java  
-**Disciplina:** Programação Concorrente  
+**Disciplina:** Sistemas Distribuidos
 **Atividade Prática 01 — Produtor/Consumidor sem Sincronização**
 
 ---
