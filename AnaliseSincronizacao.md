@@ -153,3 +153,39 @@ Saída (resumo):
 60a60
 Consumidor: 29
 
+
+2. Análise Técnica
+
+O código representa o problema do Produtor-Consumidor, implementado sem sincronização.
+Dessa forma, as threads compartilham o mesmo objeto Dado sem coordenação, levando a uma série de efeitos colaterais:
+
+O consumidor pode ler o mesmo valor várias vezes (quando o produtor demora a atualizar).
+
+O produtor pode sobrescrever valores antes da leitura, causando perda de dados.
+
+O resultado é não determinístico, variando a cada execução.
+
+Em Java, o acesso a recursos compartilhados por múltiplas threads deve ser controlado com:
+
+Blocos synchronized,
+
+Métodos wait() e notify(), ou
+
+Estruturas da biblioteca java.util.concurrent (como BlockingQueue).
+
+A ausência desses mecanismos leva à inconsistência dos dados e perda da previsibilidade do programa.
+
+3. Opinião Pessoal e Conclusões
+
+Durante a observação das execuções, ficou evidente a importância da sincronização em programas concorrentes.
+Mesmo que o programa "funcione", seus resultados são inconsistentes e não confiáveis.
+
+A sincronização garante que:
+
+O produtor não escreva enquanto o consumidor ainda não leu o dado anterior.
+
+O consumidor espere até que um novo valor esteja disponível.
+
+Sem esse controle, o comportamento das threads depende apenas da política de escalonamento do sistema operacional, o que explica as variações vistas entre os logs.
+
+Conclusão: A sincronização é fundamental para garantir integridade de dados, ordem correta de execução e previsibilidade em programas multithread.
